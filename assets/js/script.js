@@ -251,6 +251,7 @@ $("#modalDueDate").datepicker({
 });
 
 var auditTask = function(taskEl) {
+  console.log(taskEl);
   //get date from task element
   var date = $(taskEl).find("span").text().trim();
 
@@ -296,4 +297,8 @@ $("#trash").droppable({
 // load tasks for the first time
 loadTasks();
 
-
+setInterval(function () {
+  $(".card .list-group-item").each(function (el) {
+    auditTask(el);
+  });
+}, 1800000);
